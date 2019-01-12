@@ -12,7 +12,7 @@ public class SPanel extends JPanel {
 	private Point[] points;
 	private Point center;
 	
-	private static int RADIUS = 500;
+	private int radius = 500;
 
 	public static void main(String[] args) {
 		new SPanel();
@@ -29,7 +29,7 @@ public class SPanel extends JPanel {
 		
 		this.initPoints(5);
 		this.center = new Point(frame.getWidth() / 2, frame.getHeight() / 2);
-		RADIUS = center.y - 25;
+		radius = center.y - 25;
 		this.setBackground(new Color(0.2f, 0.2f, 0.2f));
 		
 		long now = System.nanoTime(), lastLoop = now, loopNanos = 1000000000 / 100;
@@ -53,7 +53,7 @@ public class SPanel extends JPanel {
 	
 	private void initPoints(int index) {
 		this.points = new Point[index];
-		for(int i = 0; i < index; i++) this.points[i] = new Point((int) (((float) RADIUS / index) * (index - i) * Math.cos(Math.PI / 2 * i + Math.PI / 100 * i)), (int) (((float) RADIUS / index) * (index - i) * Math.sin(Math.PI / 2 * i + Math.PI / 100 * i)));
+		for(int i = 0; i < index; i++) this.points[i] = new Point((int) (((float) radius / index) * (index - i) * Math.cos(Math.PI / 2 * i + Math.PI / 100 * i)), (int) (((float) radius / index) * (index - i) * Math.sin(Math.PI / 2 * i + Math.PI / 100 * i)));
 	}
 
 }
